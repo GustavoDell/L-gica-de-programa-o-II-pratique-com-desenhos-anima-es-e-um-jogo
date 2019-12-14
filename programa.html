@@ -1,4 +1,12 @@
-<canvas width="600" height="400" background></canvas>
+<canvas width="600" height="400" ></canvas>
 <script>
 
+    //tendo acesso ao canvas via javascript
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+    
 </script>
