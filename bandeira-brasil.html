@@ -1,0 +1,16 @@
+<canvas width="600" height="400"></canvas>
+<script>
+    tela = document.querySelector("canvas");
+    pincel = tela.getContext("2d");
+
+    pincel.fillStyle = "green";
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = "yellow";
+    pincel.beginPath();
+    pincel.moveTo(100, 100);
+    pincel.lineTo(150, 100);
+    pincel.lineTo(150, 100);
+    pincel.fill();
+
+</script>
