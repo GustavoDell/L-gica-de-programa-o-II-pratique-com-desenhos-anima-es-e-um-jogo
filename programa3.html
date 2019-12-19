@@ -19,6 +19,12 @@
 
         console.log(x + "," + y);
     }
-
     tela.onclick = desenhaCirculo;
+
+    function exibeMensagem(){
+        alert("Você clicou com botão direito");
+        return false;
+    }
+    
+    tela.oncontextmenu = exibeMensagem;
 </script>
