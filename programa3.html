@@ -8,6 +8,7 @@
     var cores = ["blue", "red", "green"];
     
     var indiceCorAtual = 0;
+    var raio = 10;
     
     console.log()
 
@@ -15,18 +16,23 @@
     pincel.fillRect(0, 0, 600, 400);
 
     function desenhaCirculo(evento) {
-        var aumenta = 10;
-        shift = evento.shiftKey
-        if(shift == true){
-            aumenta = 20;
+        
+        
+        if(evento.shiftKey && evento.altKey){
+            
+            if(ento.shiftKey && raio + 10 <= 40){
+                raio = raio + 40;
+            }
+            if(evento.altKey && raio - 5 >= 10){
+                raio = raio - 5;
+            }
         }
-        console.log(shift);
 
         var x = evento.pageX - tela.offsetLeft;
         var y = evento.pageY - tela.offsetTop;
         pincel.fillStyle = cores[indiceCorAtual];
         pincel.beginPath();
-        pincel.arc(x, y, aumenta, 0, 2 * 3.14);
+        pincel.arc(x, y, raio, 0, 2 * 3.14);
         pincel.fill();
 
         console.log(x + "," + y);
@@ -46,12 +52,7 @@
 
         return false;//para não exibir o menu padrão canvas
     }
-    function aumentaCirculo(evento){
-        console.log(evento);
-        if(evento == true){
-
-        }
-    }
+    
 
    
     tela.oncontextmenu = mudaCor;
