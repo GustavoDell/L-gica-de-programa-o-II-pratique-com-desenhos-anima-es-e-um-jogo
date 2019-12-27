@@ -17,19 +17,17 @@
     pincel.fillStyle = "grey";
     pincel.fillRect(0, 0, 600, 400);
 
-    function habilitaDesenhar(){
+    tela.onmousedown =  function (){
         desenha = true;
     }
-    
-    tela.onmousedown = habilitaDesenhar;
 
-    function desabilitaDesenhar(){
+    tela.onmouseup = function (){
         desenha = false;
     }
-
-    tela.onmousemove = desenhaCirculo;
-
-    function desenhaCirculo(evento) {
+   
+    
+    
+    tela.onmousemove = function(evento) {
         
         if(evento.shiftKey || evento.altKey){
             
@@ -53,9 +51,7 @@
         }
         
         console.log(x + "," + y);
-    }
-    
-    tela.onmouseup = desabilitaDesenhar;
+    } 
 
     function mudaCor(){
         
@@ -63,6 +59,7 @@
         if(indiceCorAtual >= cores.length){
             indiceCorAtual = 0;
         }
+
 
         alert(indiceCorAtual);
 
