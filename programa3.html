@@ -1,21 +1,26 @@
 <canvas width="600" height="400"></canvas>
+<br>
+Escolha uma cor <input type="color">
 
 <script>
-
-    tela = document.querySelector("canvas");
-    pincel = tela.getContext("2d");
-
-    var cores = ["blue", "red", "green"];
     
+    
+    var paleta = document.querySelector("input");
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    var cores = ["blue", "red", "green"]; 
+
     var indiceCorAtual = 0;
+    
     var raio = 10;
 
     var desenha = false;
     
-    console.log()
-
-    pincel.fillStyle = "grey";
-    pincel.fillRect(0, 0, 600, 400);
+   
 
     tela.onmousedown =  function (){
         desenha = true;
@@ -25,8 +30,6 @@
         desenha = false;
     }
    
-    
-    
     tela.onmousemove = function(evento) {
         
         if(evento.shiftKey || evento.altKey){
@@ -39,18 +42,18 @@
             }
         }
         
-        console.log(desenha);
-        
         if(desenha) {
             var x = evento.pageX - tela.offsetLeft;
             var y = evento.pageY - tela.offsetTop;
-            pincel.fillStyle = cores[indiceCorAtual];
+            pincel.fillStyle = paleta.value;
             pincel.beginPath();
             pincel.arc(x, y, raio, 0, 2 * 3.14);
             pincel.fill();
+            
+            console.log(x + "," + y);
         }
         
-        console.log(x + "," + y);
+        
     } 
 
     function mudaCor(){
